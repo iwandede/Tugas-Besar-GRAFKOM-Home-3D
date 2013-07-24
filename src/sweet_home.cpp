@@ -362,10 +362,25 @@ void rumah(void){
 								glutSolidCube(5.0);
 								glPopMatrix();
 
+		// lantai tengah
+				glPushMatrix();
+				glScaled(2.5, 0.049, 2.6);
+				glTranslatef(-6.5, -13, -1);
+				glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+				glColor3f(1.0, 1.0, 1.0);
+				glutSolidCube(5.0);
+				glPopMatrix();
+				// atap teras tengah atas
+				glPushMatrix();
+				glScaled(2, 0.05, 2.6);
+				glTranslatef(-8.1, -10, -1.5);
+				glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+				glColor3f(1.0, 1.0, 0.0);
+				glutSolidCube(5.0);
+				glPopMatrix();
 }
 
-
-unsigned int LoadTextureFromBmpFile(char *filename);
+//unsigned int LoadTextureFromBmpFile(char *filename);
 
 void display(void) {
 	glClearStencil(0); //clear the stencil buffer
@@ -374,7 +389,6 @@ void display(void) {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT); //clear the buffers
 	glLoadIdentity();
 	gluLookAt(viewx, viewy, viewz, 0.0, 0.0, 5.0, 0.0, 1.0, 0.0);
-
 	glPushMatrix();
 
 	//glBindTexture(GL_TEXTURE_3D, texture[0]);
@@ -411,8 +425,6 @@ void display(void) {
 		glScalef(5, 5, 5);
 		//glBindTexture(GL_TEXTURE_2D, texture[0]);
 		glPopMatrix();
-
-
 
 	glutSwapBuffers();
 	glFlush();
